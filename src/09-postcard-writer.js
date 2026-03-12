@@ -79,12 +79,20 @@ export function isValidPincode(code) {
 
 export function formatPostcardField(label, value, width) {
   // Your code here
+  if (typeof label !== "string" || typeof value !== "string") return "";
+  width = width || 12;
+  return label.padEnd(width) + ": " + value;
 }
 
 export function isFromState(address, stateCode) {
   // Your code here
+  if (typeof address !== "string" || typeof stateCode !== "string") return false;
+  return address.endsWith(stateCode);
 }
 
 export function countVowels(message) {
   // Your code here
+  if (typeof message !== "string") return 0;
+  const vowels = message.match(/[aeiouAEIOU]/g);
+  return vowels ? vowels.length : 0;
 }
